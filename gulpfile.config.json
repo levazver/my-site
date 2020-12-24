@@ -1,63 +1,60 @@
 {
   "paths": {
-    "dest": "dist/",
+    "dest": "docs/",
     "views": {
       "src": "src/app/views/*.pug",
       "watch": "src/app/views/**/*.pug",
-      "dest": "dist/"
+      "dest": "docs/"
     },
     "vendorStyles": {
       "src": [
         "node_modules/normalize.css/normalize.css"
       ],
       "concat": "vendor.css",
-      "dest": "dist/css/"
+      "dest": "docs/css/"
     },
     "styles": {
       "src": "src/app/assets/stylesheets/application.scss",
       "watch": "src/app/assets/stylesheets/**/*.scss",
-      "dest": "dist/css/"
+      "dest": "docs/css/"
     },
     "scripts": {
       "src": "src/app/assets/javascripts/app.js",
       "watch": "src/app/assets/javascripts/**/*.js",
-      "dest": "dist/js/"
+      "dest": "docs/js/"
     },
     "copyModernizr": {
       "src": "src/app/assets/javascripts/modernizr.js",
-      "dest": "dist/js/"
+      "dest": "docs/js/"
     },
     "vendorFonts": {
       "src": [
         " "
       ],
-      "dest": "dist/fonts/"
+      "dest": "docs/fonts/"
     },
     "fonts": {
       "src": "src/app/assets/fonts/**/*.{woff,woff2}",
       "watch": "src/app/assets/fonts/**/*.{woff,woff2}",
-      "dest": "dist/fonts/"
+      "dest": "docs/fonts/"
     },
     "images": {
       "src": "src/app/assets/images/**/*.{gif,jpg,jpeg,png}",
       "watch": "src/app/assets/images/**/*.{gif,jpg,jpeg,png}",
-      "dest": "dist/img/"
+      "dest": "docs/img/"
     },
     "svg": {
       "src": "src/app/assets/images/svg/**/*.svg",
       "watch": "src/app/assets/images/svg/**/*.svg",
-      "dest": "dist/img/svg/"
+      "dest": "docs/img/svg/"
     },
     "files": {
       "src": "src/public/**/*",
       "watch": "src/public/**/*",
-      "dest": "dist/"
+      "dest": "docs/"
     }
   },
   "options": {
-    "modernizr": {
-      "cmd": "./node_modules/modernizr/bin/modernizr -c ./modernizr.config.json -d ./dist/js/modernizr.js -u"
-    },
     "pug": {
       "pretty": true
     },
@@ -71,7 +68,7 @@
     "connect": {
       "host": "0.0.0.0",
       "port": 8080,
-      "root": "dist/",
+      "root": "docs/",
       "livereload": true
     },
     "imagemin": {

@@ -80,17 +80,6 @@ function buildViews() {
         .pipe(connect.reload());
 }
 
-// Vendor styles
-function vendorStyles() {
-    return src(config.paths.vendorStyles.src)
-        .pipe(concat(config.paths.vendorStyles.concat))
-        .pipe(postcss(getEnvDepPlugins({
-            devPlugins: [minifyCSS()],
-            prodPlugins: [minifyCSS()]
-        })))
-        .pipe(dest(config.paths.vendorStyles.dest));
-}
-
 // Styles
 function buildStyles() {
     return src(config.paths.styles.src)
@@ -198,7 +187,7 @@ exports.default = parallel(connectServer, watchChanges);
 
 exports.lint = parallel(lintViews, lintStyles, lintScripts);
 
-exports.build = series(clean, parallel(buildViews, vendorStyles, buildStyles, buildScripts, vendorFonts, copyFonts, optimizeImages, buildSvgSprite, copyFiles));
+exports.build = series(clean, parallel(buildViews, buildStyles, buildScripts, vendorFonts, copyFonts, optimizeImages, buildSvgSprite, copyFiles));
 
 exports.images = optimizeImages;
 
