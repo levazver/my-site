@@ -1,0 +1,148 @@
+@charset "UTF-8";
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+// 1. Sticky footer
+
+html {
+    font-size: 62.5%;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+
+    &.mod_flexboxtweener { // 1
+        height: 100%;
+    }
+}
+
+body {
+    @include text-md;
+
+    position: relative;
+    display: flex; // 1
+    flex-direction: column; // 1
+    min-height: 100vh;
+    min-width: 320px;
+    background: #fff;
+    color: $color-base;
+    font-family: 'Source Code Pro', monospace;
+
+    @if $enable-mq == false {
+        min-width: $width;
+    }
+
+    .mod_flexboxtweener & { // 1
+        height: 100%;
+    }
+}
+
+main { // 1
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    .mod_flexboxtweener & {
+        flex: 1 0 auto;
+    }
+}
+
+a {
+    @include link-base;
+
+    transition: all $transition-duration-base;
+}
+
+button,
+input,
+select,
+textarea {
+    appearance: none;
+    background: none;
+    border: none;
+    color: inherit;
+    font-family: inherit;
+}
+
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+select {
+    border-radius: 0;
+
+    &::-ms-expand { // IE11
+        display: none;
+    }
+}
+
+textarea {
+    resize: none;
+}
+
+hr {
+    border: none;
+}
+
+iframe {
+    border: none;
+}
+
+img {
+    max-width: 100%;
+
+    &[width],
+    &[height] {
+        max-width: none;
+    }
+}
+
+figure {
+    margin: 0;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+small {
+    @include text-sm;
+}
+
+svg {
+    vertical-align: top;
+    transition: all $transition-duration-base;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+:disabled {
+    cursor: not-allowed;
+}
+
+.visually-hidden {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+}
+
+.no-overflow {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: fixed;
+}

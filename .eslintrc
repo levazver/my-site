@@ -1,0 +1,16 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "script"
+  },
+  "env": {
+    "browser": true,
+    "jquery": true
+  },
+  "globals": {
+    "FontFaceObserver": true,
+    "Modernizr": true,
+    "svg4everybody": true
+  },
+  "extends": "eslint:recommended"
+}

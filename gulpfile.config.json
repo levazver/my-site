@@ -1,0 +1,113 @@
+{
+  "paths": {
+    "dest": "dist/",
+    "views": {
+      "src": "src/app/views/*.pug",
+      "watch": "src/app/views/**/*.pug",
+      "dest": "dist/"
+    },
+    "vendorStyles": {
+      "src": [
+        "node_modules/normalize.css/normalize.css"
+      ],
+      "concat": "vendor.css",
+      "dest": "dist/css/"
+    },
+    "styles": {
+      "src": "src/app/assets/stylesheets/application.scss",
+      "watch": "src/app/assets/stylesheets/**/*.scss",
+      "dest": "dist/css/"
+    },
+    "scripts": {
+      "src": "src/app/assets/javascripts/app.js",
+      "watch": "src/app/assets/javascripts/**/*.js",
+      "dest": "dist/js/"
+    },
+    "copyModernizr": {
+      "src": "src/app/assets/javascripts/modernizr.js",
+      "dest": "dist/js/"
+    },
+    "vendorFonts": {
+      "src": [
+        " "
+      ],
+      "dest": "dist/fonts/"
+    },
+    "fonts": {
+      "src": "src/app/assets/fonts/**/*.{woff,woff2}",
+      "watch": "src/app/assets/fonts/**/*.{woff,woff2}",
+      "dest": "dist/fonts/"
+    },
+    "images": {
+      "src": "src/app/assets/images/**/*.{gif,jpg,jpeg,png}",
+      "watch": "src/app/assets/images/**/*.{gif,jpg,jpeg,png}",
+      "dest": "dist/img/"
+    },
+    "svg": {
+      "src": "src/app/assets/images/svg/**/*.svg",
+      "watch": "src/app/assets/images/svg/**/*.svg",
+      "dest": "dist/img/svg/"
+    },
+    "files": {
+      "src": "src/public/**/*",
+      "watch": "src/public/**/*",
+      "dest": "dist/"
+    }
+  },
+  "options": {
+    "modernizr": {
+      "cmd": "./node_modules/modernizr/bin/modernizr -c ./modernizr.config.json -d ./dist/js/modernizr.js -u"
+    },
+    "pug": {
+      "pretty": true
+    },
+    "htmlmin": {
+      "collapseWhitespace": true
+    },
+    "sass": {
+      "outputStyle": "expanded",
+      "precision": "3"
+    },
+    "connect": {
+      "host": "0.0.0.0",
+      "port": 8080,
+      "root": "dist/",
+      "livereload": true
+    },
+    "imagemin": {
+      "gifsicle": {
+        "interlaced": true
+      },
+      "jpegtran": {
+        "progressive": true
+      },
+      "optipng": {
+        "optimizationLevel": 1
+      }
+    },
+    "stylelint": {
+      "failAfterError": false,
+      "fix": true,
+      "reporters": [
+        {
+          "formatter": "string",
+          "console": true
+        }
+      ]
+    },
+    "eslint": {
+      "fix": true
+    },
+    "svgSprite": {
+      "mode": {
+        "symbol": true
+      },
+      "shape": {
+        "transform": []
+      },
+      "svg": {
+        "dimensionAttributes": true
+      }
+    }
+  }
+}
