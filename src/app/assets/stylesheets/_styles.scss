@@ -135,5 +135,7 @@ table {
 
     & > p {
         @include fontSize(20, 28);
+
+        text-align: center;
     }
 }
