@@ -130,7 +130,13 @@ table {
     & > h1 {
         @include fontSize(32, 42);
 
+        word-break: break-word;
         text-align: center;
+
+        @supports (hyphens: manual) {
+            word-break: normal;
+            hyphens: manual;
+        }
     }
 
     & > p {
