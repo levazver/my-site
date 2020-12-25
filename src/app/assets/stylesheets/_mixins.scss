@@ -184,73 +184,9 @@
     height: $height;
 }
 
-// Text
-@mixin text-lg {
-    @include font(2rem, 2.5rem);
-}
-
-@mixin text-md {
-    @include font(1.5rem, 2rem);
-}
-
-@mixin text-sm {
-    @include font(1rem, 1.5rem);
-}
-
-// Headings
-@mixin h {
-    font-family: $font-family-alt;
-
-    a {
-        text-decoration: none;
-    }
-}
-
-@mixin h1($font-weight: $font-weight-solid) {
-    @include h;
-    @include font(6rem);
-
-    font-weight: $font-weight;
-}
-
-@mixin h2($font-weight: $font-weight-solid) {
-    @include h;
-    @include font(5rem);
-
-    font-weight: $font-weight;
-}
-
-@mixin h3($font-weight: $font-weight-solid) {
-    @include h;
-    @include font(4rem);
-
-    font-weight: $font-weight;
-}
-
-@mixin h4($font-weight: $font-weight-solid) {
-    @include h;
-    @include font(3rem);
-
-    font-weight: $font-weight;
-}
-
-@mixin h5($font-weight: $font-weight-solid) {
-    @include h;
-    @include text-lg;
-
-    font-weight: $font-weight;
-}
-
-@mixin h6($font-weight: $font-weight-solid) {
-    @include h;
-    @include text-md;
-
-    font-weight: $font-weight;
-}
-
-// Links
-@mixin link-base {
-    color: $color-link;
+@mixin fontSize($size, $height) {
+    font-size: #{$size / 10}rem;
+    line-height: #{$height / 10}rem;
 }
 
 // Placeholder

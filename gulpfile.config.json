@@ -51,7 +51,7 @@
     "files": {
       "src": "src/public/**/*",
       "watch": "src/public/**/*",
-      "dest": "docs/"
+      "dest": "docs/public/"
     }
   },
   "options": {

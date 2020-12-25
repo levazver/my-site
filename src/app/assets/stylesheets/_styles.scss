@@ -3,8 +3,6 @@
 *,
 *::before,
 *::after {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
@@ -16,47 +14,25 @@ html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
-
-    &.mod_flexboxtweener { // 1
-        height: 100%;
-    }
 }
 
 body {
-    @include text-md;
-
     position: relative;
-    display: flex; // 1
-    flex-direction: column; // 1
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
     min-width: 320px;
     background: #fff;
-    color: $color-base;
-    font-family: 'Source Code Pro', monospace;
-
-    @if $enable-mq == false {
-        min-width: $width;
-    }
-
-    .mod_flexboxtweener & { // 1
-        height: 100%;
-    }
-}
-
-main { // 1
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-
-    .mod_flexboxtweener & {
-        flex: 1 0 auto;
-    }
+    font-family: 'Commissioner', Helvetica, -apple-system, sans-serif;
 }
 
 a {
-    @include link-base;
+    transition: color $transition-duration-base, background-color $transition-duration-base;
+    color: #111;
 
-    transition: all $transition-duration-base;
+    &:hover {
+        color: $color-dark-orange;
+    }
 }
 
 button,
@@ -70,6 +46,21 @@ textarea {
     font-family: inherit;
 }
 
+/* clears the 'X' from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+}
+
+// Remove Arrows/Spinners
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 fieldset {
     margin: 0;
     padding: 0;
@@ -78,18 +69,10 @@ fieldset {
 
 select {
     border-radius: 0;
-
-    &::-ms-expand { // IE11
-        display: none;
-    }
 }
 
 textarea {
-    resize: none;
-}
-
-hr {
-    border: none;
+    resize: vertical;
 }
 
 iframe {
@@ -114,10 +97,6 @@ ul {
     list-style: none;
 }
 
-small {
-    @include text-sm;
-}
-
 svg {
     vertical-align: top;
     transition: all $transition-duration-base;
@@ -140,9 +119,21 @@ table {
     margin: -1px;
 }
 
-.no-overflow {
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    position: fixed;
+.main {
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 2rem;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+
+    & > h1 {
+        @include fontSize(32, 42);
+
+        text-align: center;
+    }
+
+    & > p {
+        @include fontSize(20, 28);
+    }
 }

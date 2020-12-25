@@ -2,19 +2,10 @@ let enable = {
     mq: true,
     mqDevice: false,
 
-    interactMultiple: true,
-
-    jQueryUI: {
-        autocomplete: true,
-        datepicker: true,
-        selectmenu: true
-    },
-
     components: {
-        fonts: true,
+        fonts: false,
         fontsRubleSans: true,
         fontsRubleSerif: true,
-        icons: true,
         wysiwyg: true
     }
 };
