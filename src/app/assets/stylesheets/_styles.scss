@@ -130,6 +130,7 @@ table {
     & > h1 {
         @include fontSize(32, 42);
 
+        max-width: 95rem;
         word-break: break-word;
         text-align: center;
 
