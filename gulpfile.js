@@ -14,13 +14,11 @@ const svgSprite = require('gulp-svg-sprite');
 const babel = require('gulp-babel');
 const webpack = require('webpack');
 const webpackStream = require('webpack-stream');
-const eslint = require('gulp-eslint');
 
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const sass = require('gulp-sass');
 const minifyCSS = require('postcss-clean');
-const stylelint = require('gulp-stylelint');
 
 const pug = require('gulp-pug');
 const htmlmin = require('gulp-htmlmin');
@@ -166,26 +164,10 @@ function lintViews() {
         ]));
 }
 
-// Lint styles
-function lintStyles() {
-    return src('dist/css/application.css')
-        .pipe(stylelint(config.options.stylelint))
-        .pipe(dest(config.paths.styles.dest));
-}
-
-// Lint scripts
-function lintScripts() {
-    return src('dist/js/application.js')
-        .pipe(eslint(config.options.eslint))
-        .pipe(eslint.format())
-        .pipe(dest(config.paths.scripts.dest));
-}
-
-
 // Tasks
 exports.default = parallel(connectServer, watchChanges);
 
-exports.lint = parallel(lintViews, lintStyles, lintScripts);
+exports.lint = parallel(lintViews);
 
 exports.build = series(clean, parallel(buildViews, buildStyles, buildScripts, vendorFonts, copyFonts, optimizeImages, buildSvgSprite, copyFiles));
 
